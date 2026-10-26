@@ -518,6 +518,9 @@ class RequestBroadcaster:
         py_logits_post_processors = collect_py_objects_from_requests(
             new_requests, "py_logits_post_processors"
         )
+        py_apply_batched_logits_processor = collect_py_objects_from_requests(
+            new_requests, "py_apply_batched_logits_processor"
+        )
         py_multimodal_data = collect_py_objects_from_requests(new_requests, "py_multimodal_data")
         py_scheduling_params = collect_py_objects_from_requests(
             new_requests, "py_scheduling_params"
@@ -537,6 +540,7 @@ class RequestBroadcaster:
                 None,
                 [
                     py_logits_post_processors,
+                    py_apply_batched_logits_processor,
                     py_multimodal_data,
                     py_scheduling_params,
                     py_num_logprobs,
